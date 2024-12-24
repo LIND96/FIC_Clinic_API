@@ -25,7 +25,33 @@ class User extends Authenticatable implements FilamentUser
         'name',
         'email',
         'password',
+        'role',
+        'google_id',
+        'ktp_number',
+        'birth_date',
+        'gender',
+        'phone_number',
+        'address',
+        'certification',
+        'telemedicine_fee',
+        'chat_fee',
+        'start_time',
+        'end_time',
+        'clinic_id',
+        'image',
+        'specialist_id',
+
     ];
+
+    public function clinic()
+    {
+        return $this->belongsTo(Clinic::class);
+    }
+
+    public function specialization()
+    {
+        return $this->belongsTo(Specialist::class);
+    }
 
     public function canAccessPanel(Panel $panel): bool
     {
